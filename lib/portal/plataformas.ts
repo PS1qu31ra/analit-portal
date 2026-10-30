@@ -1,56 +1,89 @@
-import type { Language } from "@/lib/i18n/translations";
+import type {
+  Language,
+} from "@/lib/i18n/translations";
+
 
 export type PlataformaStatus =
   | "available"
   | "development";
 
+
 type TextoTraduzido =
   Record<Language, string>;
+
 
 export type Plataforma = {
   id: string;
   slug: string;
   name: string;
-  category: TextoTraduzido;
-  description: TextoTraduzido;
-  status: PlataformaStatus;
-  features: TextoTraduzido[];
+
+  category:
+    TextoTraduzido;
+
+  description:
+    TextoTraduzido;
+
+  status:
+    PlataformaStatus;
+
+  features:
+    TextoTraduzido[];
+
   href?: string;
 };
 
-export const PLATAFORMAS: Plataforma[] = [
+
+export const PLATAFORMAS:
+  Plataforma[] = [
   {
     id: "analitcalc",
+
     slug: "analitcalc",
+
     name: "AnalitCalc",
 
     category: {
-      "pt-BR": "Química Analítica",
-      en: "Analytical Chemistry",
+      "pt-BR":
+        "Química Analítica",
+
+      en:
+        "Analytical Chemistry",
     },
 
     description: {
       "pt-BR":
-        "Plataforma voltada à simulação, ao cálculo e à interpretação de sistemas de volumetria clássica.",
+        "Ambiente para cálculos, simulações e interpretação de sistemas de química analítica.",
 
       en:
-        "Platform designed for simulation, calculation and interpretation of classical volumetric analysis systems.",
+        "Environment for calculations, simulations and interpretation of analytical chemistry systems.",
     },
 
-    status: "available",
+    status:
+      "available",
 
     features: [
       {
-        "pt-BR": "Simulações interativas",
-        en: "Interactive simulations",
+        "pt-BR":
+          "Cálculos científicos",
+
+        en:
+          "Scientific calculations",
       },
+
       {
-        "pt-BR": "Curvas analíticas",
-        en: "Analytical curves",
+        "pt-BR":
+          "Curvas analíticas",
+
+        en:
+          "Analytical curves",
       },
+
       {
-        "pt-BR": "Interpretação química",
-        en: "Chemical interpretation",
+        "pt-BR":
+          "Simulações interativas",
+
+        en:
+          "Interactive simulations",
       },
     ],
 
@@ -59,21 +92,26 @@ export const PLATAFORMAS: Plataforma[] = [
   },
 
   {
-    id: "analito",
-    slug: "analito",
-    name: "Analito",
+    id: "visualizer",
+
+    slug: "visualizer",
+
+    name: "Visualizer",
 
     category: {
-      "pt-BR": "Assistência científica",
-      en: "Scientific assistance",
+      "pt-BR":
+        "Visualização científica",
+
+      en:
+        "Scientific Visualization",
     },
 
     description: {
       "pt-BR":
-        "Ambiente inteligente para apoio ao estudo, interpretação e aplicação de conceitos químicos.",
+        "Explore resultados científicos por meio de visualizações, gráficos, estruturas e representações interativas.",
 
       en:
-        "Intelligent environment designed to support the study, interpretation and application of chemical concepts.",
+        "Explore scientific results through interactive visualizations, graphs, structures and representations.",
     },
 
     status:
@@ -82,67 +120,26 @@ export const PLATAFORMAS: Plataforma[] = [
     features: [
       {
         "pt-BR":
-          "Assistência científica",
+          "Gráficos e curvas",
 
         en:
-          "Scientific assistance",
+          "Graphs and curves",
       },
+
       {
         "pt-BR":
-          "Aprendizagem orientada",
+          "Visualizações interativas",
 
         en:
-          "Guided learning",
+          "Interactive visualizations",
       },
+
       {
         "pt-BR":
-          "Ferramentas inteligentes",
+          "Exploração de resultados",
 
         en:
-          "Intelligent tools",
-      },
-    ],
-  },
-
-  {
-    id: "marsyn",
-    slug: "marsyn",
-    name: "MARSYN",
-
-    category: {
-      "pt-BR":
-        "Espectrometria de massas",
-
-      en:
-        "Mass spectrometry",
-    },
-
-    description: {
-      "pt-BR":
-        "Plataforma destinada ao suporte à interpretação e organização de informações em LC-MS e GC-MS.",
-
-      en:
-        "Platform designed to support the interpretation and organization of LC-MS and GC-MS information.",
-    },
-
-    status:
-      "development",
-
-    features: [
-      {
-        "pt-BR": "LC-MS",
-        en: "LC-MS",
-      },
-      {
-        "pt-BR": "GC-MS",
-        en: "GC-MS",
-      },
-      {
-        "pt-BR":
-          "Análise instrumental",
-
-        en:
-          "Instrumental analysis",
+          "Results exploration",
       },
     ],
   },

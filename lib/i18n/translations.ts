@@ -26,126 +26,158 @@ scientificEcosystem: "Ecossistema científico",
     },
 
     home: {
-      navPlatforms: "Plataformas",
-      navEcosystem: "Ecossistema",
-      navHow: "Como funciona",
-
+      navPlatforms:
+        "Plataformas",
+    
+      navEcosystem:
+        "Ecossistema",
+    
+      navHow:
+        "Como funciona",
+    
       heroBadge:
-        "Analit Ecosystem",
-
+        "Ciência sem fronteiras",
+    
       heroTitle1:
-        "Um único acesso.",
-
+        "Uma conta.",
+    
       heroTitle2:
         "Um ecossistema inteiro",
-
+    
       heroTitle3:
         "de ferramentas científicas.",
-
+    
       heroDescription:
-        "Acesse plataformas voltadas ao ensino, à pesquisa e à análise científica a partir de uma única conta.",
-
+        "Acesse ferramentas para ensino, pesquisa, visualização e análise científica a partir de uma única conta.",
+    
       createMyAccount:
         "Criar minha conta",
-
+    
       alreadyAccount:
         "Já tenho uma conta",
-
+    
       identity:
-        "identidade",
-
+        "IDENTIDADE",
+    
       platforms:
-        "plataformas",
-
+        "PLATAFORMAS",
+    
       environment:
-        "ambiente central",
-
+        "POSSIBILIDADES",
+    
+      identityDescription:
+        "Um acesso para tudo.",
+    
+      platformsDescription:
+        "Ferramentas complementares.",
+    
+      possibilitiesDescription:
+        "Ciência sem limites.",
+    
       platformEyebrow:
-        "Plataformas",
-
+        "NOSSAS PLATAFORMAS",
+    
       platformTitle:
-        "Ferramentas que evoluem junto com o ecossistema.",
-
+        "Ferramentas poderosas. Um ecossistema conectado.",
+    
       platformDescription:
-        "Cada plataforma possui uma finalidade específica, mas compartilha a mesma identidade, conta e estrutura de acesso.",
-
+        "AnalitCalc e Visualizer compartilham a mesma identidade, perfil e estrutura de acesso dentro do Analit.",
+    
       accessPortal:
-        "Acessar pelo portal",
-
+        "Acessar plataforma",
+    
       ecosystemEyebrow:
-        "Ecossistema Analit",
-
+        "ECOSSISTEMA ANALIT",
+    
       ecosystemTitle:
-        "Sua identidade acompanha você entre as plataformas.",
-
+        "Uma identidade que acompanha toda a sua experiência científica.",
+    
       ecosystemDescription:
-        "O Analit Portal funciona como o ponto central do ecossistema. Sua conta, perfil e permissões permanecem centralizados enquanto você utiliza diferentes ferramentas.",
-
+        "O Analit Portal centraliza sua conta, perfil e acesso às ferramentas científicas do ecossistema.",
+    
       identityTitle:
         "Identidade centralizada",
-
-      identityDescription:
-        "Uma única conta para acessar as plataformas disponíveis.",
-
+    
       profileTitle:
         "Perfil integrado",
-
+    
       profileDescription:
-        "Informações acadêmicas e profissionais vinculadas ao usuário.",
-
+        "Seu contexto acadêmico e profissional acompanha você entre as ferramentas.",
+    
       experienceTitle:
         "Experiência contínua",
-
+    
       experienceDescription:
-        "Acesse novas ferramentas sem precisar criar novas contas.",
-
+        "Entre em novos módulos sem precisar criar novas contas ou repetir configurações.",
+    
       howEyebrow:
-        "Como funciona",
-
+        "COMO FUNCIONA",
+    
       howTitle:
-        "Do cadastro à plataforma em três etapas.",
-
+        "Um único portal para diferentes experiências científicas.",
+    
       step1:
         "Crie sua conta",
-
+    
       step1Description:
-        "Informe seus dados de acesso e complete seu perfil acadêmico ou profissional.",
-
+        "Cadastre sua identidade e complete seu perfil acadêmico ou profissional.",
+    
       step2:
-        "Entre no portal",
-
+        "Escolha uma plataforma",
+    
       step2Description:
-        "Visualize todas as plataformas disponíveis para sua conta em um único painel.",
-
+        "Acesse AnalitCalc, Visualizer e futuras ferramentas diretamente pelo portal.",
+    
       step3:
-        "Acesse suas ferramentas",
-
+        "Conte com o Analito",
+    
       step3Description:
-        "Escolha a plataforma desejada e continue sua atividade dentro do ecossistema.",
-
+        "O assistente acompanha você dentro dos módulos e auxilia durante sua experiência.",
+    
       ctaTitle:
-        "Seu acesso ao ecossistema começa aqui.",
-
+        "Seu ecossistema científico começa aqui.",
+    
       ctaDescription:
-        "Crie sua conta e tenha um único ambiente para acessar as plataformas Analit.",
-
+        "Uma conta para acessar ferramentas, recursos e assistência científica integrada.",
+    
       footer:
         "Ensino, pesquisa e tecnologia científica em um único ecossistema.",
-
+    
       previewTitle:
         "Seu ambiente científico",
-
+    
       previewOverview:
         "VISÃO GERAL",
-
+    
       previewPlatforms:
-        "Suas plataformas",
-
+        "Suas ferramentas",
+    
       previewDescription:
-        "Tudo o que você utiliza dentro do ecossistema em um único lugar.",
-
+        "Tudo o que você utiliza no ecossistema em um único ambiente.",
+    
       integrated:
         "Ecossistema integrado",
+    
+      assistantEyebrow:
+        "ASSISTÊNCIA INTELIGENTE",
+    
+      assistantTitle:
+        "Analito acompanha você em todo o ecossistema.",
+    
+      assistantDescription:
+        "Analito não é uma plataforma separada. Ele funciona como o assistente científico integrado aos módulos do AnalitCalc, Visualizer e às futuras ferramentas.",
+    
+      assistantFeature1:
+        "Entende o contexto do módulo atual",
+    
+      assistantFeature2:
+        "Ajuda na interpretação de resultados",
+    
+      assistantFeature3:
+        "Orienta sem interromper seu fluxo de trabalho",
+    
+      assistantMessage:
+        "Olá! Posso ajudar a interpretar este resultado?",
     },
 
     login: {
@@ -386,126 +418,158 @@ scientificEcosystem: "Scientific ecosystem",
     },
 
     home: {
-      navPlatforms: "Platforms",
-      navEcosystem: "Ecosystem",
-      navHow: "How it works",
-
+      navPlatforms:
+        "Platforms",
+    
+      navEcosystem:
+        "Ecosystem",
+    
+      navHow:
+        "How it works",
+    
       heroBadge:
-        "Analit Ecosystem",
-
+        "Science without boundaries",
+    
       heroTitle1:
         "One account.",
-
+    
       heroTitle2:
         "An entire ecosystem",
-
+    
       heroTitle3:
         "of scientific tools.",
-
+    
       heroDescription:
-        "Access platforms designed for education, research and scientific analysis through a single account.",
-
+        "Access tools for education, research, visualization and scientific analysis through a single account.",
+    
       createMyAccount:
         "Create my account",
-
+    
       alreadyAccount:
         "I already have an account",
-
+    
       identity:
-        "identity",
-
+        "IDENTITY",
+    
       platforms:
-        "platforms",
-
+        "PLATFORMS",
+    
       environment:
-        "central environment",
-
+        "POSSIBILITIES",
+    
+      identityDescription:
+        "One access for everything.",
+    
+      platformsDescription:
+        "Complementary tools.",
+    
+      possibilitiesDescription:
+        "Science without limits.",
+    
       platformEyebrow:
-        "Platforms",
-
+        "OUR PLATFORMS",
+    
       platformTitle:
-        "Tools that evolve together with the ecosystem.",
-
+        "Powerful tools. A connected ecosystem.",
+    
       platformDescription:
-        "Each platform serves a specific purpose while sharing the same identity, account and access structure.",
-
+        "AnalitCalc and Visualizer share the same identity, profile and access infrastructure within Analit.",
+    
       accessPortal:
-        "Access through portal",
-
+        "Access platform",
+    
       ecosystemEyebrow:
-        "Analit Ecosystem",
-
+        "ANALIT ECOSYSTEM",
+    
       ecosystemTitle:
-        "Your identity follows you across platforms.",
-
+        "One identity throughout your scientific experience.",
+    
       ecosystemDescription:
-        "Analit Portal is the central hub of the ecosystem. Your account, profile and permissions remain centralized while you use different tools.",
-
+        "Analit Portal centralizes your account, profile and access to the ecosystem's scientific tools.",
+    
       identityTitle:
         "Centralized identity",
-
-      identityDescription:
-        "One account to access all available platforms.",
-
+    
       profileTitle:
         "Integrated profile",
-
+    
       profileDescription:
-        "Academic and professional information linked to your account.",
-
+        "Your academic and professional context follows you across tools.",
+    
       experienceTitle:
         "Continuous experience",
-
+    
       experienceDescription:
-        "Access new tools without creating additional accounts.",
-
+        "Enter new modules without creating additional accounts or repeating configurations.",
+    
       howEyebrow:
-        "How it works",
-
+        "HOW IT WORKS",
+    
       howTitle:
-        "From registration to your platform in three steps.",
-
+        "One portal for different scientific experiences.",
+    
       step1:
         "Create your account",
-
+    
       step1Description:
-        "Set up your access credentials and complete your academic or professional profile.",
-
+        "Create your identity and complete your academic or professional profile.",
+    
       step2:
-        "Enter the portal",
-
+        "Choose a platform",
+    
       step2Description:
-        "View all platforms available to your account from a single dashboard.",
-
+        "Access AnalitCalc, Visualizer and future tools directly through the portal.",
+    
       step3:
-        "Access your tools",
-
+        "Ask Analito",
+    
       step3Description:
-        "Choose a platform and continue your activities within the ecosystem.",
-
+        "The assistant follows you inside the modules and supports you throughout your experience.",
+    
       ctaTitle:
-        "Your access to the ecosystem starts here.",
-
+        "Your scientific ecosystem starts here.",
+    
       ctaDescription:
-        "Create your account and use one environment to access Analit platforms.",
-
+        "One account to access scientific tools, resources and integrated assistance.",
+    
       footer:
         "Education, research and scientific technology in one ecosystem.",
-
+    
       previewTitle:
         "Your scientific environment",
-
+    
       previewOverview:
         "OVERVIEW",
-
+    
       previewPlatforms:
-        "Your platforms",
-
+        "Your tools",
+    
       previewDescription:
-        "Everything you use across the ecosystem in one place.",
-
+        "Everything you use across the ecosystem in one environment.",
+    
       integrated:
         "Integrated ecosystem",
+    
+      assistantEyebrow:
+        "INTELLIGENT ASSISTANCE",
+    
+      assistantTitle:
+        "Analito follows you across the ecosystem.",
+    
+      assistantDescription:
+        "Analito is not a separate platform. It works as the scientific assistant integrated into AnalitCalc, Visualizer and future tools.",
+    
+      assistantFeature1:
+        "Understands the current module context",
+    
+      assistantFeature2:
+        "Helps interpret scientific results",
+    
+      assistantFeature3:
+        "Supports you without interrupting your workflow",
+    
+      assistantMessage:
+        "Hi! Can I help you interpret this result?",
     },
 
     login: {

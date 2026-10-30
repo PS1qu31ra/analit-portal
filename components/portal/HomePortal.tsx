@@ -43,7 +43,11 @@ export default function HomePortal() {
               </strong>
 
               <span>
-                {dictionary.common.scientificEcosystem}
+                {
+                  dictionary
+                    .common
+                    .scientificEcosystem
+                }
               </span>
             </div>
           </Link>
@@ -52,6 +56,10 @@ export default function HomePortal() {
           <nav className={styles.nav}>
             <a href="#plataformas">
               {t.navPlatforms}
+            </a>
+
+            <a href="#analito">
+              Analito
             </a>
 
             <a href="#ecossistema">
@@ -71,14 +79,22 @@ export default function HomePortal() {
               href="/login"
               className={styles.loginButton}
             >
-              {dictionary.common.login}
+              {
+                dictionary
+                  .common
+                  .login
+              }
             </Link>
 
             <Link
               href="/cadastro"
               className={styles.signupButton}
             >
-              {dictionary.common.createAccount}
+              {
+                dictionary
+                  .common
+                  .createAccount
+              }
             </Link>
           </div>
         </div>
@@ -86,26 +102,40 @@ export default function HomePortal() {
 
 
       <section className={styles.hero}>
+        <div className={styles.heroShapeOne} />
+        <div className={styles.heroShapeTwo} />
+        <div className={styles.heroShapeThree} />
+
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <div className={styles.heroBadge}>
-              {t.heroBadge}
+            <div className={styles.heroEyebrow}>
+              <span>
+                {t.heroBadge}
+              </span>
+
+              <i />
             </div>
+
 
             <h1>
               {t.heroTitle1}
+
               <br />
 
               <span>
                 {t.heroTitle2}
-              </span>{" "}
+              </span>
+
+              <br />
 
               {t.heroTitle3}
             </h1>
 
+
             <p className={styles.heroDescription}>
               {t.heroDescription}
             </p>
+
 
             <div className={styles.heroActions}>
               <Link
@@ -113,7 +143,10 @@ export default function HomePortal() {
                 className={styles.primaryButton}
               >
                 {t.createMyAccount}
-                <span>→</span>
+
+                <span>
+                  →
+                </span>
               </Link>
 
               <Link
@@ -121,128 +154,277 @@ export default function HomePortal() {
                 className={styles.secondaryButton}
               >
                 {t.alreadyAccount}
+
+                <span>
+                  →
+                </span>
               </Link>
             </div>
 
-            <div className={styles.heroTrust}>
+
+            <div className={styles.heroStats}>
               <div>
-                <strong>01</strong>
-                <span>{t.identity}</span>
+                <strong>
+                  01
+                </strong>
+
+                <span>
+                  {t.identity}
+                </span>
+
+                <small>
+                  {
+                    t.identityDescription
+                  }
+                </small>
               </div>
 
-              <div>
-                <strong>03</strong>
-                <span>{t.platforms}</span>
-              </div>
 
               <div>
-                <strong>01</strong>
-                <span>{t.environment}</span>
+                <strong>
+                  02
+                </strong>
+
+                <span>
+                  {t.platforms}
+                </span>
+
+                <small>
+                  {
+                    t.platformsDescription
+                  }
+                </small>
+              </div>
+
+
+              <div>
+                <strong>
+                  ∞
+                </strong>
+
+                <span>
+                  {t.environment}
+                </span>
+
+                <small>
+                  {
+                    t.possibilitiesDescription
+                  }
+                </small>
               </div>
             </div>
           </div>
 
 
-          <div className={styles.portalPreview}>
-            <div className={styles.previewGlow} />
+          <div className={styles.heroVisual}>
+            <div className={styles.dataCard}>
+              <div className={styles.chartIcon}>
+                <span />
+                <span />
+                <span />
+              </div>
 
-            <div className={styles.previewWindow}>
-              <div className={styles.previewHeader}>
-                <div>
-                  <span className={styles.previewLabel}>
-                    Analit Portal
+              <p>
+                {language === "pt-BR"
+                  ? "Dos dados à descoberta."
+                  : "From data to discovery."}
+              </p>
+
+              <div className={styles.miniCurve} />
+            </div>
+
+
+            <div className={styles.flaskCard}>
+              ⚗
+            </div>
+
+
+            <div className={styles.molecule}>
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+
+
+            <div className={styles.laptop}>
+              <div className={styles.laptopScreen}>
+                <div className={styles.mockSidebar}>
+                  <div className={styles.mockBrand}>
+                    A
+                  </div>
+
+                  <span className={styles.mockActive}>
+                    ◆
                   </span>
 
-                  <strong>
-                    {t.previewTitle}
-                  </strong>
+                  <span>
+                    ◇
+                  </span>
+
+                  <span>
+                    ◫
+                  </span>
+
+                  <span>
+                    ⚙
+                  </span>
                 </div>
 
-                <div className={styles.avatar}>
-                  A
+
+                <div className={styles.mockMain}>
+                  <div className={styles.mockTopbar}>
+                    <div>
+                      <small>
+                        Analit Portal
+                      </small>
+
+                      <strong>
+                        {language === "pt-BR"
+                          ? "Bem-vindo de volta!"
+                          : "Welcome back!"}
+                      </strong>
+                    </div>
+
+                    <div className={styles.mockAvatar}>
+                      A
+                    </div>
+                  </div>
+
+
+                  <div className={styles.mockSearch}>
+                    {language === "pt-BR"
+                      ? "Pesquisar ferramentas..."
+                      : "Search tools..."}
+                  </div>
+
+
+                  <div className={styles.mockApps}>
+                    <div className={styles.mockApp}>
+                      <div>
+                        AC
+                      </div>
+
+                      <strong>
+                        AnalitCalc
+                      </strong>
+
+                      <span>
+                        {
+                          dictionary
+                            .common
+                            .available
+                        }
+                      </span>
+                    </div>
+
+
+                    <div className={styles.mockApp}>
+                      <div>
+                        VI
+                      </div>
+
+                      <strong>
+                        Visualizer
+                      </strong>
+
+                      <span>
+                        {
+                          dictionary
+                            .common
+                            .development
+                        }
+                      </span>
+                    </div>
+                  </div>
+
+
+                  <div className={styles.mockActivity}>
+                    <strong>
+                      {language === "pt-BR"
+                        ? "Atividade recente"
+                        : "Recent activity"}
+                    </strong>
+
+                    <div>
+                      <span>
+                        ∿
+                      </span>
+
+                      <p>
+                        {language === "pt-BR"
+                          ? "Curva analítica"
+                          : "Analytical curve"}
+                      </p>
+
+                      <small>
+                        AnalitCalc
+                      </small>
+                    </div>
+
+                    <div>
+                      <span>
+                        ◉
+                      </span>
+
+                      <p>
+                        {language === "pt-BR"
+                          ? "Visualização de resultados"
+                          : "Results visualization"}
+                      </p>
+
+                      <small>
+                        Visualizer
+                      </small>
+                    </div>
+                  </div>
                 </div>
               </div>
 
+              <div className={styles.laptopBase} />
+            </div>
 
-              <div className={styles.previewWelcome}>
+
+            <div className={styles.scienceCard}>
+              <div className={styles.scienceStructure}>
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+
+              <p>
+                {language === "pt-BR"
+                  ? "Conhecimento sem limites."
+                  : "Knowledge without limits."}
+              </p>
+            </div>
+
+
+            <div className={styles.analitoBubble}>
+              <div className={styles.analitoIcon}>
+                AI
+              </div>
+
+              <div>
                 <span>
-                  {t.previewOverview}
+                  ANALITO
                 </span>
 
-                <h3>
-                  {t.previewPlatforms}
-                </h3>
-
-                <p>
-                  {t.previewDescription}
-                </p>
+                <strong>
+                  {
+                    t.assistantMessage
+                  }
+                </strong>
               </div>
 
-
-              <div className={styles.previewApps}>
-                <div
-                  className={`${styles.previewApp} ${styles.previewAppActive}`}
-                >
-                  <div className={styles.previewAppIcon}>
-                    AC
-                  </div>
-
-                  <div>
-                    <strong>
-                      AnalitCalc
-                    </strong>
-
-                    <span>
-                      {dictionary.common.available}
-                    </span>
-                  </div>
-
-                  <span className={styles.previewArrow}>
-                    →
-                  </span>
-                </div>
-
-
-                <div className={styles.previewApp}>
-                  <div className={styles.previewAppIcon}>
-                    AN
-                  </div>
-
-                  <div>
-                    <strong>
-                      Analito
-                    </strong>
-
-                    <span>
-                      {dictionary.common.development}
-                    </span>
-                  </div>
-                </div>
-
-
-                <div className={styles.previewApp}>
-                  <div className={styles.previewAppIcon}>
-                    MS
-                  </div>
-
-                  <div>
-                    <strong>
-                      MARSYN
-                    </strong>
-
-                    <span>
-                      {dictionary.common.development}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-
-              <div className={styles.previewFooter}>
-                <span className={styles.statusDot} />
-
-                {t.integrated}
-              </div>
+              <button
+                type="button"
+                aria-label="Analito"
+              >
+                →
+              </button>
             </div>
           </div>
         </div>
@@ -251,120 +433,252 @@ export default function HomePortal() {
 
       <section
         id="plataformas"
-        className={styles.platformSection}
+        className={
+          styles.platformSection
+        }
       >
-        <div className={styles.sectionContainer}>
-          <div className={styles.sectionHeader}>
-            <div>
-              <span className={styles.sectionEyebrow}>
-                {t.platformEyebrow}
-              </span>
+        <div
+          className={
+            styles.sectionContainer
+          }
+        >
+          <header
+            className={
+              styles.platformHeader
+            }
+          >
+            <span>
+              {t.platformEyebrow}
+            </span>
 
-              <h2>
-                {t.platformTitle}
-              </h2>
-            </div>
+            <h2>
+              {language === "pt-BR" ? (
+                <>
+                  Ferramentas poderosas.{" "}
+                  <em>
+                    Um ecossistema conectado.
+                  </em>
+                </>
+              ) : (
+                <>
+                  Powerful tools.{" "}
+                  <em>
+                    A connected ecosystem.
+                  </em>
+                </>
+              )}
+            </h2>
 
             <p>
-              {t.platformDescription}
+              {
+                t.platformDescription
+              }
             </p>
-          </div>
+          </header>
 
 
-          <div className={styles.platformGrid}>
+          <div
+            className={
+              styles.platformGrid
+            }
+          >
             {PLATAFORMAS.map(
-              (plataforma) => {
+              (
+                plataforma,
+                index
+              ) => {
                 const disponivel =
                   plataforma.status ===
                   "available";
 
+
                 return (
                   <article
-                    key={plataforma.id}
-                    className={styles.platformCard}
+                    key={
+                      plataforma.id
+                    }
+                    className={
+                      styles.platformCard
+                    }
                   >
-                    <div className={styles.platformTop}>
-                      <div className={styles.platformIcon}>
-                        {plataforma.name
-                          .slice(0, 2)
-                          .toUpperCase()}
-                      </div>
-
-                      <span
+                    <div
+                      className={
+                        styles.platformContent
+                      }
+                    >
+                      <div
                         className={
-                          disponivel
-                            ? styles.statusAvailable
-                            : styles.statusDevelopment
+                          styles.platformTitleRow
                         }
                       >
-                        <span />
+                        <div
+                          className={
+                            styles.platformIcon
+                          }
+                        >
+                          {index === 0
+                            ? "∑"
+                            : "◉"}
+                        </div>
 
-                        {disponivel
-                          ? dictionary.common.available
-                          : dictionary.common.development}
-                      </span>
-                    </div>
-
-
-                    <span className={styles.platformCategory}>
-                      {
-                        plataforma.category[
-                          language
-                        ]
-                      }
-                    </span>
-
-                    <h3>
-                      {plataforma.name}
-                    </h3>
-
-                    <p>
-                      {
-                        plataforma.description[
-                          language
-                        ]
-                      }
-                    </p>
-
-
-                    <div className={styles.featureList}>
-                      {plataforma.features.map(
-                        (feature) => (
-                          <span
-                            key={
-                              feature[
-                                language
-                              ]
-                            }
-                          >
-                            <i>✓</i>
-
+                        <div>
+                          <h3>
                             {
-                              feature[
+                              plataforma.name
+                            }
+                          </h3>
+
+                          <span>
+                            {
+                              plataforma
+                                .category[
                                 language
                               ]
                             }
                           </span>
-                        )
-                      )}
+                        </div>
+                      </div>
+
+
+                      <p>
+                        {
+                          plataforma
+                            .description[
+                            language
+                          ]
+                        }
+                      </p>
+
+
+                      <div
+                        className={
+                          styles.featureList
+                        }
+                      >
+                        {
+                          plataforma.features.map(
+                            (
+                              feature
+                            ) => (
+                              <span
+                                key={
+                                  feature[
+                                    language
+                                  ]
+                                }
+                              >
+                                <i>
+                                  ✓
+                                </i>
+
+                                {
+                                  feature[
+                                    language
+                                  ]
+                                }
+                              </span>
+                            )
+                          )
+                        }
+                      </div>
+
+
+                      <div
+                        className={
+                          styles.platformFooter
+                        }
+                      >
+                        {disponivel &&
+                        plataforma.href ? (
+                          <Link
+                            href={
+                              plataforma.href
+                            }
+                          >
+                            <span>
+                              →
+                            </span>
+
+                            {
+                              t.accessPortal
+                            }
+                          </Link>
+                        ) : (
+                          <div
+                            className={
+                              styles.comingSoon
+                            }
+                          >
+                            {
+                              dictionary
+                                .common
+                                .comingSoon
+                            }
+                          </div>
+                        )}
+                      </div>
                     </div>
 
 
-                    <div className={styles.platformFooter}>
-                      {disponivel &&
-                      plataforma.href ? (
-                        <Link
-                          href={plataforma.href}
-                          className={styles.platformLink}
-                        >
-                          {t.accessPortal}
+                    <div
+                      className={`${styles.platformArtwork} ${
+                        index === 0
+                          ? styles.calcArtwork
+                          : styles.visualizerArtwork
+                      }`}
+                    >
+                      {index === 0 ? (
+                        <>
+                          <span>
+                            ∫ f(x) dx
+                          </span>
 
-                          <span>→</span>
-                        </Link>
+                          <div
+                            className={
+                              styles.formula
+                            }
+                          >
+                            σ² =
+                            Σ(x−x̄)²/n
+                          </div>
+
+                          <div
+                            className={
+                              styles.curve
+                            }
+                          />
+                        </>
                       ) : (
-                        <span className={styles.platformDisabled}>
-                          {dictionary.common.comingSoon}
-                        </span>
+                        <>
+                          <div
+                            className={
+                              styles.visualDots
+                            }
+                          >
+                            {Array.from({
+                              length: 18,
+                            }).map(
+                              (_, i) => (
+                                <i
+                                  key={
+                                    i
+                                  }
+                                />
+                              )
+                            )}
+                          </div>
+
+                          <div
+                            className={
+                              styles.visualBars
+                            }
+                          >
+                            <span />
+                            <span />
+                            <span />
+                            <span />
+                          </div>
+                        </>
                       )}
                     </div>
                   </article>
@@ -377,69 +691,166 @@ export default function HomePortal() {
 
 
       <section
-        id="ecossistema"
-        className={styles.ecosystemSection}
+        id="analito"
+        className={
+          styles.analitoSection
+        }
       >
-        <div className={styles.sectionContainer}>
-          <div className={styles.ecosystemGrid}>
-            <div className={styles.ecosystemContent}>
-              <span className={styles.sectionEyebrow}>
-                {t.ecosystemEyebrow}
+        <div
+          className={
+            styles.sectionContainer
+          }
+        >
+          <div
+            className={
+              styles.analitoPanel
+            }
+          >
+            <div
+              className={
+                styles.analitoContent
+              }
+            >
+              <span
+                className={
+                  styles.sectionLabel
+                }
+              >
+                {
+                  t.assistantEyebrow
+                }
               </span>
 
               <h2>
-                {t.ecosystemTitle}
+                {t.assistantTitle}
               </h2>
 
               <p>
-                {t.ecosystemDescription}
+                {
+                  t.assistantDescription
+                }
               </p>
+
+
+              <div
+                className={
+                  styles.assistantFeatures
+                }
+              >
+                <span>
+                  <i>✓</i>
+
+                  {
+                    t.assistantFeature1
+                  }
+                </span>
+
+                <span>
+                  <i>✓</i>
+
+                  {
+                    t.assistantFeature2
+                  }
+                </span>
+
+                <span>
+                  <i>✓</i>
+
+                  {
+                    t.assistantFeature3
+                  }
+                </span>
+              </div>
             </div>
 
 
-            <div className={styles.ecosystemItems}>
-              <div className={styles.ecosystemItem}>
-                <span>01</span>
+            <div
+              className={
+                styles.assistantDemo
+              }
+            >
+              <div
+                className={
+                  styles.assistantHeader
+                }
+              >
+                <div
+                  className={
+                    styles.assistantAvatar
+                  }
+                >
+                  AI
+                </div>
 
                 <div>
                   <strong>
-                    {t.identityTitle}
+                    Analito
                   </strong>
 
-                  <p>
-                    {t.identityDescription}
-                  </p>
+                  <span>
+                    {
+                      language ===
+                      "pt-BR"
+                        ? "Assistente científico"
+                        : "Scientific assistant"
+                    }
+                  </span>
                 </div>
+
+                <i />
               </div>
 
 
-              <div className={styles.ecosystemItem}>
-                <span>02</span>
+              <div
+                className={
+                  styles.assistantContext
+                }
+              >
+                <span>
+                  AnalitCalc
+                </span>
 
-                <div>
-                  <strong>
-                    {t.profileTitle}
-                  </strong>
-
-                  <p>
-                    {t.profileDescription}
-                  </p>
-                </div>
+                <small>
+                  {
+                    language ===
+                    "pt-BR"
+                      ? "Contexto atual"
+                      : "Current context"
+                  }
+                </small>
               </div>
 
 
-              <div className={styles.ecosystemItem}>
-                <span>03</span>
+              <div
+                className={
+                  styles.assistantMessage
+                }
+              >
+                {
+                  t.assistantMessage
+                }
+              </div>
 
-                <div>
-                  <strong>
-                    {t.experienceTitle}
-                  </strong>
 
-                  <p>
-                    {t.experienceDescription}
-                  </p>
-                </div>
+              <div
+                className={
+                  styles.assistantInput
+                }
+              >
+                <span>
+                  {
+                    language ===
+                    "pt-BR"
+                      ? "Pergunte ao Analito..."
+                      : "Ask Analito..."
+                  }
+                </span>
+
+                <button
+                  type="button"
+                >
+                  →
+                </button>
               </div>
             </div>
           </div>
@@ -448,75 +859,57 @@ export default function HomePortal() {
 
 
       <section
-        id="acesso"
-        className={styles.flowSection}
+        id="ecossistema"
+        className={
+          styles.ecosystemSection
+        }
       >
-        <div className={styles.sectionContainer}>
-          <div className={styles.flowHeader}>
-            <span className={styles.sectionEyebrow}>
-              {t.howEyebrow}
-            </span>
+        <div
+          className={
+            styles.sectionContainer
+          }
+        >
+          <div
+            className={
+              styles.ecosystemGrid
+            }
+          >
+            <div>
+              <span
+                className={
+                  styles.sectionLabel
+                }
+              >
+                {
+                  t.ecosystemEyebrow
+                }
+              </span>
 
-            <h2>
-              {t.howTitle}
-            </h2>
-          </div>
-
-
-          <div className={styles.flowGrid}>
-            <div className={styles.flowCard}>
-              <span>01</span>
-
-              <h3>
-                {t.step1}
-              </h3>
-
-              <p>
-                {t.step1Description}
-              </p>
+              <h2>
+                {
+                  t.ecosystemTitle
+                }
+              </h2>
             </div>
 
-            <div className={styles.flowConnector}>
-              →
-            </div>
-
-            <div className={styles.flowCard}>
-              <span>02</span>
-
-              <h3>
-                {t.step2}
-              </h3>
-
-              <p>
-                {t.step2Description}
-              </p>
-            </div>
-
-            <div className={styles.flowConnector}>
-              →
-            </div>
-
-            <div className={styles.flowCard}>
-              <span>03</span>
-
-              <h3>
-                {t.step3}
-              </h3>
-
-              <p>
-                {t.step3Description}
-              </p>
-            </div>
+            <p>
+              {
+                t.ecosystemDescription
+              }
+            </p>
           </div>
         </div>
       </section>
 
 
-      <section className={styles.ctaSection}>
+      <section
+        id="acesso"
+        className={styles.ctaSection}
+      >
         <div className={styles.cta}>
           <div>
             <span>
-              ANALIT ECOSYSTEM
+              ANALIT
             </span>
 
             <h2>
@@ -528,20 +921,32 @@ export default function HomePortal() {
             </p>
           </div>
 
+
           <div className={styles.ctaActions}>
             <Link
               href="/cadastro"
               className={styles.ctaPrimary}
             >
-              {dictionary.common.createAccount}
-              <span>→</span>
+              {
+                dictionary
+                  .common
+                  .createAccount
+              }
+
+              <span>
+                →
+              </span>
             </Link>
 
             <Link
               href="/login"
               className={styles.ctaSecondary}
             >
-              {dictionary.common.login}
+              {
+                dictionary
+                  .common
+                  .login
+              }
             </Link>
           </div>
         </div>
@@ -561,7 +966,11 @@ export default function HomePortal() {
               </strong>
 
               <span>
-                {dictionary.common.scientificEcosystem}
+                {
+                  dictionary
+                    .common
+                    .scientificEcosystem
+                }
               </span>
             </div>
           </div>
