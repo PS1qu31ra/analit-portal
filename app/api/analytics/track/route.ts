@@ -96,7 +96,7 @@ export async function POST(
      * Não tenta acessar o Neon.
      */
     if (
-      process.env.VERCEL !== "1"
+      process.env.NODE_ENV !== "production"
     ) {
       return Response.json({
         ok: true,
@@ -261,7 +261,9 @@ export async function POST(
       ok: true,
       skipped: false,
       environment:
-        "production",
+        process.env.NODE_ENV,
+      country:
+        countryCode,
     });
   } catch (error) {
     console.error(
