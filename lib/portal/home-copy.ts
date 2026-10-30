@@ -113,8 +113,8 @@ import type {
       countries:
         "países alcançados",
   
-      accesses:
-        "acessos registrados",
+        accesses:
+        "visitantes",
   
       loading:
         "Carregando alcance...",
@@ -239,8 +239,8 @@ import type {
       countries:
         "countries reached",
   
-      accesses:
-        "recorded accesses",
+        accesses:
+        "visitors",
   
       loading:
         "Loading reach...",

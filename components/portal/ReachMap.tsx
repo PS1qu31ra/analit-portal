@@ -133,8 +133,8 @@ export default function ReachMap({
   }, []);
 
 
-  const totalAccesses =
-    useMemo(
+  const totalVisitors =
+  useMemo(
       () =>
         data.reduce(
           (
@@ -220,7 +220,7 @@ export default function ReachMap({
             }
           >
             <strong>
-              {totalAccesses}
+            {totalVisitors}
             </strong>
 
             <span>
@@ -371,8 +371,8 @@ export default function ReachMap({
 
                   valueSuffix={
                     language === "pt-BR"
-                      ? " acessos"
-                      : " accesses"
+                      ? " visitantes"
+                      : " visitors"
                   }
 
                   tooltipTextFunction={(
@@ -391,9 +391,9 @@ export default function ReachMap({
                       context.countryValue
                     } ${
                       language ===
-                      "pt-BR"
-                        ? "acessos"
-                        : "accesses"
+"pt-BR"
+  ? "visitantes"
+  : "visitors"
                     }`;
                   }}
                 />

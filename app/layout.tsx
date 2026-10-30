@@ -12,6 +12,7 @@ import {
   Inter,
 } from "next/font/google";
 
+import AnalyticsTracker from "@/components/analytics/AnalyticsTracker";
 
 const inter =
   Inter({
@@ -47,9 +48,11 @@ export default function RootLayout({
     inter.className
   }
 >
-  <LanguageProvider>
-    {children}
-  </LanguageProvider>
+<LanguageProvider>
+  <AnalyticsTracker />
+
+  {children}
+</LanguageProvider>
 </body>
     </html>
   );
