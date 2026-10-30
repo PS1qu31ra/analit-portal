@@ -162,13 +162,13 @@
 }
 
 .affiliationRow {
-  margin-top: 36px;
+  margin-top: 38px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  gap: 36px;
+  gap: 12px;
 
   flex-wrap: wrap;
 }
@@ -176,7 +176,7 @@
 .inlineAffiliationLogo,
 .inlineUfmgLogo {
   width: 190px;
-  height: 76px;
+  height: 104px;
 
   display: block;
 
@@ -184,17 +184,11 @@
 
   object-fit: contain;
   object-position: center;
-
-  filter:
-    drop-shadow(
-      0 6px 12px
-      rgba(15, 23, 42, 0.06)
-    );
 }
 
 .registrationCard {
   width: min(780px, 100%);
-  margin: 28px auto 0;
+  margin: 42px auto 0;
   padding: 22px 24px;
   border-radius: 22px;
   text-decoration: none;
@@ -411,32 +405,194 @@
 }
 
 
-.mapCanvas {
-  min-height: 450px;
+.mapViewer {
+  position: relative;
+
+  height: 560px;
+
+  margin-top: 8px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    #eee3df;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fafafa,
+      #f5f3f2
+    );
+}
+
+
+.mapZoomWrapper {
+  width: 100% !important;
+  height: 100% !important;
+
+  overflow: hidden !important;
+
+  cursor: grab;
+}
+
+
+.mapZoomWrapper:active {
+  cursor: grabbing;
+}
+
+
+.mapZoomContent {
+  width: 100%;
 
   display: flex;
 
   align-items: center;
 
   justify-content: center;
-
-  overflow: hidden;
 }
 
 
-.mapCanvas > div {
-  width: 100% !important;
+.mapWorld {
+  width: 1200px;
 
-  max-width: 980px;
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 }
 
 
-.mapCanvas svg {
-  width: 100% !important;
+.mapWorld svg {
+  display: block;
+
+  width: 1200px !important;
 
   height: auto !important;
+}
 
-  max-height: 470px;
+
+.mapControls {
+  position: absolute;
+
+  z-index: 10;
+
+  top: 18px;
+  right: 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+.mapControls button {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid
+    #e0d4cf;
+
+  border-radius: 12px;
+
+  color: #4b4340;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .94
+    );
+
+  box-shadow:
+    0 8px 22px
+    rgba(
+      15,
+      23,
+      42,
+      .08
+    );
+
+  cursor: pointer;
+
+  transition:
+    color .15s ease,
+    border-color .15s ease,
+    transform .15s ease;
+}
+
+
+.mapControls button:hover {
+  color: #b10f1f;
+
+  border-color:
+    rgba(
+      177,
+      15,
+      31,
+      .30
+    );
+
+  transform:
+    translateY(-1px);
+}
+
+
+.mapHint {
+  position: absolute;
+
+  z-index: 8;
+
+  left: 50%;
+  bottom: 14px;
+
+  transform:
+    translateX(-50%);
+
+  padding:
+    8px 13px;
+
+  border-radius: 999px;
+
+  color: #6f6763;
+
+  font-size: .72rem;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .90
+    );
+
+  box-shadow:
+    0 6px 20px
+    rgba(
+      15,
+      23,
+      42,
+      .06
+    );
 }
 
 
@@ -612,12 +768,12 @@
   }
 
   .inlineAffiliationLogo,
-  .inlineUfmgLogo {
-    width: 150px;
-    height: 60px;
+.inlineUfmgLogo {
+  width: 160px;
+  height: 76px;
 
-    flex-basis: 150px;
-  }
+  flex-basis: 160px;
+}
 
   .mapCard {
     padding: 17px;
@@ -644,12 +800,47 @@
     gap: 14px;
   }
 
-  .mapCanvas {
-    min-height: 270px;
+  .mapViewer {
+    height: 390px;
+  
+    border-radius: 17px;
   }
-
-  .mapCanvas svg {
-    max-height: 300px;
+  
+  
+  .mapWorld {
+    width: 850px;
+  }
+  
+  
+  .mapWorld svg {
+    width: 850px !important;
+  }
+  
+  
+  .mapControls {
+    top: 10px;
+    right: 10px;
+  }
+  
+  
+  .mapControls button {
+    width: 38px;
+    height: 38px;
+  
+    border-radius: 10px;
+  }
+  
+  
+  .mapHint {
+    max-width:
+      calc(100% - 24px);
+  
+    overflow: hidden;
+  
+    text-overflow:
+      ellipsis;
+  
+    font-size: .64rem;
   }
 
   .mapEmpty {

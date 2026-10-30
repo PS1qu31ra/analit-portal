@@ -14,6 +14,11 @@ import type {
   ISOCode,
 } from "react-svg-worldmap";
 
+import {
+  TransformComponent,
+  TransformWrapper,
+} from "react-zoom-pan-pinch";
+
 import type {
   Language,
 } from "@/lib/i18n/translations";
@@ -63,10 +68,11 @@ export default function ReachMap({
 
 
   useEffect(() => {
-    let ativo = true;
+    let active =
+      true;
 
 
-    async function carregar() {
+    async function load() {
       try {
         const response =
           await fetch(
@@ -82,7 +88,7 @@ export default function ReachMap({
 
 
         if (
-          ativo &&
+          active &&
           result.ok &&
           result.countries
         ) {
@@ -107,22 +113,22 @@ export default function ReachMap({
           setData(countries);
         }
       } catch {
-        if (ativo) {
+        if (active) {
           setData([]);
         }
       } finally {
-        if (ativo) {
+        if (active) {
           setLoading(false);
         }
       }
     }
 
 
-    carregar();
+    load();
 
 
     return () => {
-      ativo = false;
+      active = false;
     };
   }, []);
 
@@ -156,7 +162,7 @@ export default function ReachMap({
       fill:
         reached
           ? "#b11218"
-          : "#d8d8d8",
+          : "#d4d4d4",
 
       fillOpacity: 1,
 
@@ -169,7 +175,7 @@ export default function ReachMap({
       cursor:
         reached
           ? "pointer"
-          : "default",
+          : "grab",
 
       transition:
         "fill 160ms ease",
@@ -178,10 +184,26 @@ export default function ReachMap({
 
 
   return (
-    <div className={styles.mapCard}>
-      <div className={styles.mapHeader}>
-        <div className={styles.mapStats}>
-          <div className={styles.mapStat}>
+    <div
+      className={
+        styles.mapCard
+      }
+    >
+      <div
+        className={
+          styles.mapHeader
+        }
+      >
+        <div
+          className={
+            styles.mapStats
+          }
+        >
+          <div
+            className={
+              styles.mapStat
+            }
+          >
             <strong>
               {data.length}
             </strong>
@@ -191,7 +213,12 @@ export default function ReachMap({
             </span>
           </div>
 
-          <div className={styles.mapStat}>
+
+          <div
+            className={
+              styles.mapStat
+            }
+          >
             <strong>
               {totalAccesses}
             </strong>
@@ -203,7 +230,11 @@ export default function ReachMap({
         </div>
 
 
-        <div className={styles.mapLegend}>
+        <div
+          className={
+            styles.mapLegend
+          }
+        >
           <span>
             <i
               className={
@@ -231,29 +262,169 @@ export default function ReachMap({
       </div>
 
 
-      <div className={styles.mapCanvas}>
-        <WorldMap
-          data={data}
-          size="responsive"
-          color="#b11218"
-          backgroundColor="transparent"
-          borderColor="#ffffff"
-          frame={false}
-          title={t.mapTitle}
-          styleFunction={styleFunction}
-          valueSuffix={
-            language === "pt-BR"
-              ? " acessos"
-              : " accesses"
-          }
-        />
-      </div>
+      <TransformWrapper
+        initialScale={1}
+        minScale={1}
+        maxScale={6}
+        centerOnInit
+        centerZoomedOut
+        wheel={{
+          step: 0.12,
+        }}
+        pinch={{
+          step: 5,
+        }}
+        doubleClick={{
+          step: 0.8,
+        }}
+      >
+        {({
+          zoomIn,
+          zoomOut,
+          resetTransform,
+        }) => (
+          <div
+            className={
+              styles.mapViewer
+            }
+          >
+            <div
+              className={
+                styles.mapControls
+              }
+            >
+              <button
+                type="button"
+                onClick={() =>
+                  zoomIn()
+                }
+                aria-label={
+                  language === "pt-BR"
+                    ? "Aumentar zoom"
+                    : "Zoom in"
+                }
+              >
+                +
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  zoomOut()
+                }
+                aria-label={
+                  language === "pt-BR"
+                    ? "Diminuir zoom"
+                    : "Zoom out"
+                }
+              >
+                −
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  resetTransform()
+                }
+                aria-label={
+                  language === "pt-BR"
+                    ? "Redefinir mapa"
+                    : "Reset map"
+                }
+              >
+                ⟳
+              </button>
+            </div>
+
+
+            <TransformComponent
+              wrapperClass={
+                styles.mapZoomWrapper
+              }
+              contentClass={
+                styles.mapZoomContent
+              }
+            >
+              <div
+                className={
+                  styles.mapWorld
+                }
+              >
+                <WorldMap
+                  data={data}
+
+                  size="xxl"
+
+                  color="#b11218"
+
+                  backgroundColor="transparent"
+
+                  borderColor="#ffffff"
+
+                  frame={false}
+
+                  title=""
+
+                  styleFunction={
+                    styleFunction
+                  }
+
+                  valueSuffix={
+                    language === "pt-BR"
+                      ? " acessos"
+                      : " accesses"
+                  }
+
+                  tooltipTextFunction={(
+                    context
+                  ) => {
+                    if (
+                      context.countryValue ===
+                      undefined
+                    ) {
+                      return context.countryName;
+                    }
+
+                    return `${
+                      context.countryName
+                    }: ${
+                      context.countryValue
+                    } ${
+                      language ===
+                      "pt-BR"
+                        ? "acessos"
+                        : "accesses"
+                    }`;
+                  }}
+                />
+              </div>
+            </TransformComponent>
+
+
+            <div
+              className={
+                styles.mapHint
+              }
+            >
+              {language === "pt-BR"
+                ? "Role para ampliar · arraste para explorar · use pinça no celular"
+                : "Scroll to zoom · drag to explore · pinch on mobile"}
+            </div>
+          </div>
+        )}
+      </TransformWrapper>
 
 
       {!loading &&
         data.length === 0 && (
-          <div className={styles.mapEmpty}>
-            <span>◎</span>
+          <div
+            className={
+              styles.mapEmpty
+            }
+          >
+            <span>
+              ◎
+            </span>
 
             <div>
               <strong>
@@ -264,8 +435,8 @@ export default function ReachMap({
 
               <p>
                 {language === "pt-BR"
-                  ? "Assim que houver acessos geográficos registrados, os países alcançados aparecerão destacados em vermelho."
-                  : "As soon as geographic access records are available, reached countries will be highlighted in red."}
+                  ? "Os países alcançados serão destacados em vermelho conforme os acessos forem registrados."
+                  : "Reached countries will be highlighted in red as accesses are recorded."}
               </p>
             </div>
           </div>
@@ -273,7 +444,11 @@ export default function ReachMap({
 
 
       {loading && (
-        <p className={styles.mapStatus}>
+        <p
+          className={
+            styles.mapStatus
+          }
+        >
           {t.loading}
         </p>
       )}
