@@ -6,6 +6,12 @@ import {
   useState,
 } from "react";
 
+import LanguageSwitcher from "@/components/i18n/LanguageSwitcher";
+
+import {
+  useLanguage,
+} from "@/components/i18n/LanguageProvider";
+
 import {
   AREAS,
   ESTADOS_BRASIL,
@@ -23,10 +29,6 @@ import {
   validarPerfil,
 } from "@/lib/cadastro/validacao";
 
-import {
-  useLanguage,
-} from "@/components/i18n/LanguageProvider";
-
 import type {
   CadastroDados,
   CadastroErros,
@@ -36,8 +38,7 @@ import type {
 import styles from "./Cadastro.module.css";
 
 
-const DADOS_INICIAIS:
-  CadastroDados = {
+const DADOS_INICIAIS: CadastroDados = {
   fullName: "",
   email: "",
   password: "",
@@ -69,7 +70,11 @@ const DADOS_INICIAIS:
 export default function CadastroForm() {
   const {
     language,
+    dictionary,
   } = useLanguage();
+
+  const t =
+    dictionary.signup;
 
 
   const [
@@ -111,7 +116,7 @@ export default function CadastroForm() {
     useState(false);
 
 
-    const rotuloNivel =
+  const rotuloNivel =
     useMemo(
       () =>
         rotuloTrajetoria(
@@ -131,7 +136,9 @@ export default function CadastroForm() {
         opcoesTrajetoria(
           dados.profileType
         ),
-      [dados.profileType]
+      [
+        dados.profileType,
+      ]
     );
 
 
@@ -154,8 +161,7 @@ export default function CadastroForm() {
 
 
   function alterarPerfil(
-    perfil:
-      PerfilAtuacao | ""
+    perfil: PerfilAtuacao | ""
   ) {
     setDados((atual) => ({
       ...atual,
@@ -179,17 +185,20 @@ export default function CadastroForm() {
 
   function avancar() {
     const encontrados =
-  validarConta(
-    dados,
-    language
-  );
+      validarConta(
+        dados,
+        language
+      );
 
     if (
       Object.keys(
         encontrados
       ).length > 0
     ) {
-      setErros(encontrados);
+      setErros(
+        encontrados
+      );
+
       return;
     }
 
@@ -205,38 +214,34 @@ export default function CadastroForm() {
     event.preventDefault();
 
     const conta =
-  validarConta(
-    dados,
-    language
-  );
+      validarConta(
+        dados,
+        language
+      );
 
-const perfil =
-  validarPerfil(
-    dados,
-    language
-  );
+    const perfil =
+      validarPerfil(
+        dados,
+        language
+      );
 
     const encontrados = {
       ...conta,
       ...perfil,
     };
 
+
     if (
       Object.keys(
         encontrados
       ).length > 0
     ) {
-      setErros(encontrados);
+      setErros(
+        encontrados
+      );
+
       return;
     }
-
-    /*
-     * Nesta etapa ainda NÃO enviamos senha
-     * nem dados pessoais para o banco.
-     *
-     * Aqui entraremos com Neon Auth
-     * quando a autenticação for conectada.
-     */
 
     setConcluido(true);
   }
@@ -251,6 +256,16 @@ const perfil =
           }
         >
           <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginBottom: 20,
+            }}
+          >
+            <LanguageSwitcher />
+          </div>
+
+          <div
             className={
               styles.successIcon
             }
@@ -263,19 +278,15 @@ const perfil =
               styles.eyebrow
             }
           >
-            Formulário validado
+            {t.validated}
           </span>
 
           <h1>
-            Perfil pronto para cadastro
+            {t.ready}
           </h1>
 
           <p>
-            Todas as informações foram
-            validadas corretamente. A criação
-            definitiva da conta será ativada
-            quando conectarmos a autenticação
-            ao Neon.
+            {t.readyDescription}
           </p>
 
           <button
@@ -287,7 +298,7 @@ const perfil =
               setConcluido(false)
             }
           >
-            Revisar informações
+            {t.review}
           </button>
         </section>
       </main>
@@ -323,10 +334,15 @@ const perfil =
                 </strong>
 
                 <span>
-                  Ecossistema científico
+                  {
+                    dictionary
+                      .common
+                      .scientificEcosystem
+                  }
                 </span>
               </div>
             </div>
+
 
             <div
               className={
@@ -338,23 +354,24 @@ const perfil =
                   styles.sidebarEyebrow
                 }
               >
-                Cadastro de usuário
+                {t.registration}
               </span>
 
               <h1>
-                Uma conta para todo o
-                ecossistema Analit.
+                {t.ecosystemTitle}
               </h1>
 
               <p>
-                Centralize seu acesso às
-                plataformas científicas e
-                mantenha sua experiência
-                integrada entre as ferramentas.
+                {t.ecosystemDescription}
               </p>
             </div>
 
-            <div className={styles.steps}>
+
+            <div
+              className={
+                styles.steps
+              }
+            >
               <div
                 className={`${styles.step} ${
                   etapa === 1
@@ -370,14 +387,17 @@ const perfil =
 
                 <div>
                   <strong>
-                    Conta
+                    {t.account}
                   </strong>
 
                   <small>
-                    Identificação e acesso
+                    {
+                      t.accountDescription
+                    }
                   </small>
                 </div>
               </div>
+
 
               <div
                 className={`${styles.step} ${
@@ -386,31 +406,32 @@ const perfil =
                     : ""
                 }`}
               >
-                <span>2</span>
+                <span>
+                  2
+                </span>
 
                 <div>
                   <strong>
-                    Perfil
+                    {t.profile}
                   </strong>
 
                   <small>
-                    Contexto acadêmico e
-                    profissional
+                    {
+                      t.profileDescription
+                    }
                   </small>
                 </div>
               </div>
             </div>
           </div>
 
+
           <p
             className={
               styles.sidebarFooter
             }
           >
-            As informações solicitadas serão
-            utilizadas para personalização,
-            análise agregada de uso e
-            aprimoramento das plataformas.
+            {t.dataUse}
           </p>
         </aside>
 
@@ -420,6 +441,18 @@ const perfil =
             styles.formCard
           }
         >
+          <div
+            style={{
+              display: "flex",
+              justifyContent:
+                "flex-end",
+              marginBottom: 22,
+            }}
+          >
+            <LanguageSwitcher />
+          </div>
+
+
           <header
             className={
               styles.formHeader
@@ -430,20 +463,22 @@ const perfil =
                 styles.eyebrow
               }
             >
-              Etapa {etapa} de 2
+              {t.step} {etapa}{" "}
+              {t.of} 2
             </span>
 
             <h2>
               {etapa === 1
-                ? "Crie sua conta"
-                : "Complete seu perfil"}
+                ? t.createTitle
+                : t.completeTitle}
             </h2>
 
             <p>
               {etapa === 1
-                ? "Informe seus dados de identificação e defina suas credenciais de acesso."
-                : "Estas informações nos ajudam a compreender o perfil de uso das plataformas e aprimorar o ecossistema Analit."}
+                ? t.createDescription
+                : t.completeDescription}
             </p>
+
 
             <div
               className={
@@ -474,13 +509,16 @@ const perfil =
                 }
               >
                 <span>
-                  Identificação
+                  {
+                    t.identification
+                  }
                 </span>
 
                 <h3>
-                  Dados da conta
+                  {t.accountData}
                 </h3>
               </div>
+
 
               <div
                 className={
@@ -493,7 +531,7 @@ const perfil =
                   }
                 >
                   <span>
-                    Nome completo
+                    {t.fullName}
                   </span>
 
                   <input
@@ -506,7 +544,9 @@ const perfil =
                         event.target.value
                       )
                     }
-                    placeholder="Informe seu nome completo"
+                    placeholder={
+                      t.fullNamePlaceholder
+                    }
                   />
 
                   {erros.fullName && (
@@ -527,19 +567,23 @@ const perfil =
                   }
                 >
                   <span>
-                    E-mail
+                    {t.email}
                   </span>
 
                   <input
                     type="email"
-                    value={dados.email}
+                    value={
+                      dados.email
+                    }
                     onChange={(event) =>
                       atualizar(
                         "email",
                         event.target.value
                       )
                     }
-                    placeholder="nome@instituicao.com"
+                    placeholder={
+                      t.emailPlaceholder
+                    }
                   />
 
                   {erros.email && (
@@ -556,7 +600,7 @@ const perfil =
 
                 <label>
                   <span>
-                    Senha
+                    {t.password}
                   </span>
 
                   <div
@@ -579,7 +623,9 @@ const perfil =
                           event.target.value
                         )
                       }
-                      placeholder="Mínimo de 8 caracteres"
+                      placeholder={
+                        t.passwordPlaceholder
+                      }
                     />
 
                     <button
@@ -592,8 +638,8 @@ const perfil =
                       }
                     >
                       {mostrarSenha
-                        ? "Ocultar"
-                        : "Mostrar"}
+                        ? t.hide
+                        : t.show}
                     </button>
                   </div>
 
@@ -611,7 +657,9 @@ const perfil =
 
                 <label>
                   <span>
-                    Confirmar senha
+                    {
+                      t.confirmPassword
+                    }
                   </span>
 
                   <div
@@ -634,7 +682,9 @@ const perfil =
                           event.target.value
                         )
                       }
-                      placeholder="Repita sua senha"
+                      placeholder={
+                        t.repeatPassword
+                      }
                     />
 
                     <button
@@ -647,8 +697,8 @@ const perfil =
                       }
                     >
                       {mostrarConfirmacao
-                        ? "Ocultar"
-                        : "Mostrar"}
+                        ? t.hide
+                        : t.show}
                     </button>
                   </div>
 
@@ -658,7 +708,9 @@ const perfil =
                         styles.error
                       }
                     >
-                      {erros.confirmPassword}
+                      {
+                        erros.confirmPassword
+                      }
                     </small>
                   )}
                 </label>
@@ -671,14 +723,11 @@ const perfil =
                 }
               >
                 <strong>
-                  Próxima etapa
+                  {t.nextStep}
                 </strong>
 
                 <p>
-                  Em seguida, serão solicitadas
-                  informações acadêmicas ou
-                  profissionais para completar
-                  seu perfil.
+                  {t.nextDescription}
                 </p>
               </div>
 
@@ -693,15 +742,24 @@ const perfil =
                   className={
                     styles.primaryButton
                   }
-                  onClick={avancar}
+                  onClick={
+                    avancar
+                  }
                 >
-                  Continuar →
+                  {
+                    dictionary
+                      .common
+                      .continue
+                  }{" "}
+                  →
                 </button>
               </footer>
             </div>
           ) : (
             <form
-              onSubmit={finalizar}
+              onSubmit={
+                finalizar
+              }
               className={
                 styles.formBody
               }
@@ -712,12 +770,13 @@ const perfil =
                 }
               >
                 <span>
-                  Perfil institucional
+                  {
+                    t.institutional
+                  }
                 </span>
 
                 <h3>
-                  Informações de formação e
-                  atuação
+                  {t.information}
                 </h3>
               </div>
 
@@ -733,7 +792,9 @@ const perfil =
                   }
                 >
                   <span>
-                    Instituição de vínculo
+                    {
+                      t.institution
+                    }
                   </span>
 
                   <input
@@ -746,7 +807,9 @@ const perfil =
                         event.target.value
                       )
                     }
-                    placeholder="Ex.: Universidade Federal de Minas Gerais"
+                    placeholder={
+                      t.institutionPlaceholder
+                    }
                   />
 
                   {erros.institution && (
@@ -755,7 +818,9 @@ const perfil =
                         styles.error
                       }
                     >
-                      {erros.institution}
+                      {
+                        erros.institution
+                      }
                     </small>
                   )}
                 </label>
@@ -763,7 +828,9 @@ const perfil =
 
                 <label>
                   <span>
-                    Perfil de atuação
+                    {
+                      t.profileType
+                    }
                   </span>
 
                   <select
@@ -779,7 +846,11 @@ const perfil =
                     }
                   >
                     <option value="">
-                      Selecione...
+                      {
+                        dictionary
+                          .common
+                          .select
+                      }
                     </option>
 
                     {PERFIS_ATUACAO.map(
@@ -792,7 +863,11 @@ const perfil =
                             opcao.value
                           }
                         >
-                          {opcao.label[language]}
+                          {
+                            opcao.label[
+                              language
+                            ]
+                          }
                         </option>
                       )
                     )}
@@ -804,7 +879,9 @@ const perfil =
                         styles.error
                       }
                     >
-                      {erros.profileType}
+                      {
+                        erros.profileType
+                      }
                     </small>
                   )}
                 </label>
@@ -812,7 +889,7 @@ const perfil =
 
                 <label>
                   <span>
-                    Área de formação ou atuação
+                    {t.area}
                   </span>
 
                   <select
@@ -827,7 +904,11 @@ const perfil =
                     }
                   >
                     <option value="">
-                      Selecione...
+                      {
+                        dictionary
+                          .common
+                          .select
+                      }
                     </option>
 
                     {AREAS.map(
@@ -840,7 +921,11 @@ const perfil =
                             opcao.value
                           }
                         >
-                          {opcao.label[language]}
+                          {
+                            opcao.label[
+                              language
+                            ]
+                          }
                         </option>
                       )
                     )}
@@ -862,12 +947,15 @@ const perfil =
                   "other" && (
                   <label>
                     <span>
-                      Especifique seu perfil
+                      {
+                        t.specifyProfile
+                      }
                     </span>
 
                     <input
                       value={
-                        dados.profileTypeOther
+                        dados
+                          .profileTypeOther
                       }
                       onChange={(event) =>
                         atualizar(
@@ -876,6 +964,18 @@ const perfil =
                         )
                       }
                     />
+
+                    {erros.profileTypeOther && (
+                      <small
+                        className={
+                          styles.error
+                        }
+                      >
+                        {
+                          erros.profileTypeOther
+                        }
+                      </small>
+                    )}
                   </label>
                 )}
 
@@ -884,7 +984,9 @@ const perfil =
                   "other" && (
                   <label>
                     <span>
-                      Especifique sua área
+                      {
+                        t.specifyArea
+                      }
                     </span>
 
                     <input
@@ -898,6 +1000,18 @@ const perfil =
                         )
                       }
                     />
+
+                    {erros.areaOther && (
+                      <small
+                        className={
+                          styles.error
+                        }
+                      >
+                        {
+                          erros.areaOther
+                        }
+                      </small>
+                    )}
                   </label>
                 )}
 
@@ -937,7 +1051,11 @@ const perfil =
                       }}
                     >
                       <option value="">
-                        Selecione...
+                        {
+                          dictionary
+                            .common
+                            .select
+                        }
                       </option>
 
                       {opcoesNivel.map(
@@ -950,18 +1068,39 @@ const perfil =
                               opcao.value
                             }
                           >
-                            {opcao.label[language]}
+                            {
+                              opcao.label[
+                                language
+                              ]
+                            }
                           </option>
                         )
                       )}
                     </select>
+
+                    {(erros.academicLevel ||
+                      erros.professionalExperienceRange) && (
+                      <small
+                        className={
+                          styles.error
+                        }
+                      >
+                        {
+                          erros.academicLevel ||
+                          erros
+                            .professionalExperienceRange
+                        }
+                      </small>
+                    )}
                   </label>
                 )}
 
 
                 <label>
                   <span>
-                    Finalidade principal de uso
+                    {
+                      t.primaryGoal
+                    }
                   </span>
 
                   <select
@@ -976,7 +1115,11 @@ const perfil =
                     }
                   >
                     <option value="">
-                      Selecione...
+                      {
+                        dictionary
+                          .common
+                          .select
+                      }
                     </option>
 
                     {FINALIDADES.map(
@@ -989,17 +1132,33 @@ const perfil =
                             opcao.value
                           }
                         >
-                          {opcao.label[language]}
+                          {
+                            opcao.label[
+                              language
+                            ]
+                          }
                         </option>
                       )
                     )}
                   </select>
+
+                  {erros.primaryGoal && (
+                    <small
+                      className={
+                        styles.error
+                      }
+                    >
+                      {
+                        erros.primaryGoal
+                      }
+                    </small>
+                  )}
                 </label>
 
 
                 <label>
                   <span>
-                    País
+                    {t.country}
                   </span>
 
                   <select
@@ -1016,6 +1175,11 @@ const perfil =
                         "stateCode",
                         ""
                       );
+
+                      atualizar(
+                        "countryOther",
+                        ""
+                      );
                     }}
                   >
                     {PAISES.map(
@@ -1028,7 +1192,11 @@ const perfil =
                             opcao.value
                           }
                         >
-                          {opcao.label[language]}
+                          {
+                            opcao.label[
+                              language
+                            ]
+                          }
                         </option>
                       )
                     )}
@@ -1040,7 +1208,7 @@ const perfil =
                   "BR" && (
                   <label>
                     <span>
-                      Estado
+                      {t.state}
                     </span>
 
                     <select
@@ -1055,7 +1223,11 @@ const perfil =
                       }
                     >
                       <option value="">
-                        Selecione...
+                        {
+                          dictionary
+                            .common
+                            .select
+                        }
                       </option>
 
                       {ESTADOS_BRASIL.map(
@@ -1068,11 +1240,27 @@ const perfil =
                               opcao.value
                             }
                           >
-                            {opcao.label[language]}
+                            {
+                              opcao.label[
+                                language
+                              ]
+                            }
                           </option>
                         )
                       )}
                     </select>
+
+                    {erros.stateCode && (
+                      <small
+                        className={
+                          styles.error
+                        }
+                      >
+                        {
+                          erros.stateCode
+                        }
+                      </small>
+                    )}
                   </label>
                 )}
 
@@ -1081,7 +1269,9 @@ const perfil =
                   "ZZ" && (
                   <label>
                     <span>
-                      Informe o país
+                      {
+                        t.specifyCountry
+                      }
                     </span>
 
                     <input
@@ -1095,6 +1285,18 @@ const perfil =
                         )
                       }
                     />
+
+                    {erros.countryOther && (
+                      <small
+                        className={
+                          styles.error
+                        }
+                      >
+                        {
+                          erros.countryOther
+                        }
+                      </small>
+                    )}
                   </label>
                 )}
 
@@ -1105,9 +1307,14 @@ const perfil =
                   }
                 >
                   <span>
-                    Como conheceu a plataforma?
+                    {t.discovery}
+
                     <small>
-                      Opcional
+                      {
+                        dictionary
+                          .common
+                          .optional
+                      }
                     </small>
                   </span>
 
@@ -1123,7 +1330,9 @@ const perfil =
                     }
                   >
                     <option value="">
-                      Prefiro não informar
+                      {
+                        t.preferNot
+                      }
                     </option>
 
                     {ORIGENS.map(
@@ -1136,7 +1345,11 @@ const perfil =
                             opcao.value
                           }
                         >
-                          {opcao.label[language]}
+                          {
+                            opcao.label[
+                              language
+                            ]
+                          }
                         </option>
                       )
                     )}
@@ -1152,12 +1365,13 @@ const perfil =
                     }
                   >
                     <span>
-                      Especifique
+                      {t.specify}
                     </span>
 
                     <input
                       value={
-                        dados.discoverySourceOther
+                        dados
+                          .discoverySourceOther
                       }
                       onChange={(event) =>
                         atualizar(
@@ -1166,6 +1380,18 @@ const perfil =
                         )
                       }
                     />
+
+                    {erros.discoverySourceOther && (
+                      <small
+                        className={
+                          styles.error
+                        }
+                      >
+                        {
+                          erros.discoverySourceOther
+                        }
+                      </small>
+                    )}
                   </label>
                 )}
               </div>
@@ -1185,7 +1411,12 @@ const perfil =
                     setEtapa(1)
                   }
                 >
-                  ← Voltar
+                  ←{" "}
+                  {
+                    dictionary
+                      .common
+                      .back
+                  }
                 </button>
 
                 <button
@@ -1194,7 +1425,7 @@ const perfil =
                     styles.primaryButton
                   }
                 >
-                  Concluir cadastro
+                  {t.complete}
                 </button>
               </footer>
             </form>
