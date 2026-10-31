@@ -1,4 +1,5 @@
 import { neon } from "@neondatabase/serverless";
+import { geolocation } from "@vercel/functions";
 
 export async function GET() {
   try {
